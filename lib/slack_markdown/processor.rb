@@ -19,16 +19,26 @@ module SlackMarkdown
     attr_reader :context
 
     def filters
+      # @filters ||= [
+      #     SlackMarkdown::Filters::ConvertFilter, # must first run
+      #     SlackMarkdown::Filters::MultipleQuoteFilter,
+      #     SlackMarkdown::Filters::QuoteFilter,
+      #     SlackMarkdown::Filters::MultipleCodeFilter,
+      #     SlackMarkdown::Filters::CodeFilter,
+      #     SlackMarkdown::Filters::EmojiFilter,
+      #     SlackMarkdown::Filters::BoldFilter,
+      #     SlackMarkdown::Filters::ItalicFilter,
+      #     SlackMarkdown::Filters::LineBreakFilter,
+      # ]
       @filters ||= [
-        SlackMarkdown::Filters::ConvertFilter, # must first run
-        SlackMarkdown::Filters::MultipleQuoteFilter,
-        SlackMarkdown::Filters::QuoteFilter,
-        SlackMarkdown::Filters::MultipleCodeFilter,
-        SlackMarkdown::Filters::CodeFilter,
-        SlackMarkdown::Filters::EmojiFilter,
-        SlackMarkdown::Filters::BoldFilter,
-        SlackMarkdown::Filters::ItalicFilter,
-        SlackMarkdown::Filters::LineBreakFilter,
+          SlackMarkdown::Filters::ConvertFilter, # must first run
+          SlackMarkdown::Filters::MultipleQuoteFilter,
+          SlackMarkdown::Filters::QuoteFilter,
+          SlackMarkdown::Filters::MultipleCodeFilter,
+          SlackMarkdown::Filters::CodeFilter,
+          SlackMarkdown::Filters::BoldFilter,
+          SlackMarkdown::Filters::ItalicFilter,
+          SlackMarkdown::Filters::LineBreakFilter,
       ]
     end
 
